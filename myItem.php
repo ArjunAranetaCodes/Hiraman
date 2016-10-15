@@ -42,8 +42,8 @@
 			font-size:18px;
 		}
 		body{
-			padding-left:100px;
-			padding-right:100px;
+			padding-left:20px;
+			padding-right:20px;
 		}
 		.col-md-4{
 			text-align:center;
@@ -77,6 +77,7 @@
 		</div>
 	<?php
 	session_start();
+	
 	$server = 'localhost';
 	$username = 'root1';
 	$password = '';
@@ -92,7 +93,7 @@
 		echo "<h4>Your Items</h4>";
 
 
-	$sql = "SELECT * from tbl_item where Username = 'testuser'";
+	$sql = "SELECT * from tbl_item where Username = '".$_SESSION['username']."'";
 	$result = $conn->query($sql);
 	if($result->num_rows>0){
 			while($row = $result->fetch_assoc()) {			

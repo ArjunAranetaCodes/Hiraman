@@ -3,6 +3,8 @@ $server = 'localhost';
 $username = 'root1';
 $password = '';
 $db = 'db_pahiram';
+
+session_start();
 $conn = new mysqli($server,$username,$password,$db);
 if($conn->connect_error){
 	die ('Failed'.$conn->connect_error);
@@ -27,7 +29,7 @@ if(isset($_POST['upload'])){
 	echo $_FILES['item3']['name']."<br />";*/
 	
 	//die();
-	$sql = "INSERT INTO tbl_item (ItemName,Price,Description,Address,category,image1,image2,image3) VALUES ('".$_POST['itemname']."','".$_POST['price']."','".$_POST['description']."','".$_POST['address']."','".$_POST['category']."','".$_FILES['item1']['name']."','".$_FILES['item2']['name']."','".$_FILES['item3']['name']."')";
+	$sql = "INSERT INTO tbl_item (Username,ItemName,Price,Description,Address,category,image1,image2,image3) VALUES ('".$_SESSION['username']."','".$_POST['itemname']."','".$_POST['price']."','".$_POST['description']."','".$_POST['address']."','".$_POST['category']."','".$_FILES['item1']['name']."','".$_FILES['item2']['name']."','".$_FILES['item3']['name']."')";
 	
 	if($conn->query($sql) == true){
 		echo "Success";
@@ -60,8 +62,8 @@ if(isset($_POST['upload'])){
 				font-size:18px;
 			}
 			form{
-				padding-left:100px;
-				padding-right:100px;
+			padding-left:20px;
+			padding-right:20px;
 			}
 		</style>	
 	</head>

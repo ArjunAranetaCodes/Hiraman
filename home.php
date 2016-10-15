@@ -43,8 +43,8 @@
 			font-size:18px;
 		}
 		body{
-			padding-left:100px;
-			padding-right:100px;
+			padding-left:20px;
+			padding-right:20px;
 		}
 		.col-md-4{
 			text-align:center;
@@ -69,11 +69,26 @@
 			font-family:Segoe UI;
 			font-size:30px;
 		}
+		.jumbotron{
+			background:url('img/hiraman.png');
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:260px 130px;
+			height:100px;
+		}
+		.input-group{
+			margin-bottom:10px;
+		}
 	</style>
 	</head>
 	<body>
-		<div class="form-group">
-			<a href="index.php" class="btn btn-primary btn-lg btnHome">Home</a>
+		
+		<div class="jumbotron">
+			
+		</div>
+		
+		<div class="col-md-12 input-group">
+			<a href="index.php" class="btn btn-primary btn-lg btnHome col-md-12" style="width:100%;">Home</a>
 		</div>
 		
 		<form action ="<?php $_SERVER['PHP_SELF']; ?>" method="POST" class="input-group">
@@ -106,9 +121,9 @@ if($result->num_rows>0){
 			echo '<div class="col-md-3 itemLabel">';
 			echo '<form action="itemcomment.php" method="post">';
 			echo '<button type="submit" name="itemname" value="'.$row['ItemName'].'" class="btn-link">'.$row['ItemName'].'</button><br>';
-			echo 'By : <input type="text" name="Username" value="'.$row['Username'].'" id="btn-link2" disabled></input><br>';
+			echo 'By : <input type="text" name="user" value="'.$row['Username'].'" id="btn-link2"></input><br>';
 			echo "</form>";
-			echo "Price : P".$row['Price']."<br>";
+			echo "<h3>Price : P".$row['Price']."</h3>";
 			echo "Location : ".$row['Address']."<br>";
 			echo "</div>";
 			
@@ -152,9 +167,9 @@ if($result->num_rows>0){
 			echo '<div class="col-md-3 itemLabel">';
 			echo '<form action="itemcomment.php" method="post">';
 			echo '<button type="submit" name="itemname" value="'.$row['ItemName'].'" class="btn-link">'.$row['ItemName'].'</button><br>';
-			echo 'By : <input type="text" name="Username" value="'.$row['Username'].'" id="btn-link2" disabled></input><br>';
+			echo 'By : <input type="text" name="user" value="'.$row['Username'].'" id="btn-link2"></input><br>';
 			echo "</form>";
-			echo "Price : P".$row['Price']."<br>";
+			echo "<h3>Price : P".$row['Price']."</h3>";
 			echo "Location : ".$row['Address']."<br>";
 			echo "</div>";
 			
